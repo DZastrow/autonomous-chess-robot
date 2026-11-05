@@ -1,0 +1,12 @@
+ip a
+sudo ip addr add +1/16 dev enx1216533f8270
+sudo ip link set enx... up
+ping ip
+ssh robot@ip
+
+run calibratemanualoriented 180, start at the white square in the bottom right and proceed clockwise
+
+start server from the EV3 brick
+
+in cv_chess_play.py, edit the host ip to match the one given by the EV3 brick
+run cv_chess_play.py
