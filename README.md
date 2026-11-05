@@ -3,6 +3,7 @@ This project is an interactive chess-playing robot built using a LEGO Mindstorms
 Mechanically, the system operates much like a Cartesian gantry (similar to a 3d printer). Two rails provide X and Y movement across the board, and a vertical (Z) mechanism raises and lowers a claw to grab and release pieces.
 
 Hardware used
+    
     • LEGO Mindstorms EV3 brick
     • 3x Large Mindstorms motors (X, Y, Z movement)
     • 1x Medium Mindstorms motor (claw)
@@ -11,6 +12,7 @@ Hardware used
     • A webcam (mounted with a clear, steady view of the board)
     • A laptop (to run the software)
 Software used
+    
     • Python
     • ev3dev (to allow the EV3 brick to run python programs)
     • socket networking (for the main program to communicate with the EV3)
@@ -22,6 +24,7 @@ Software used
 
 Software process overview
 The system can be divided into three main sub-systems, which follow a fairly straightforward code loop:
+    
     • Vision
         ◦ Before beginning the game, take an initial image through the webcam and allow the user to mark the location of the board, to determine the locations of each square
         ◦ Capture an image of the board before and after a player moves
@@ -45,6 +48,7 @@ The system can be divided into three main sub-systems, which follow a fairly str
 
 
 Challenges
+    
     • The rails, being made out of LEGO, had a lot to be desired in the realm of stability. It functions well enough, but it has enough wiggle room to make positioning a nightmare and the Y-rail tilts slightly every time the claw raises/lowers.
     • The EV3 brick has a hard limit of 4 motors; the other 4 ports are dedicated for sensors. This meant that only one motor could be used to power each rail, rather than using two along the base to provide more torque as originally intended. It was assumed that all 8 ports could be used for motors, so this discovery necessitated a partial rebuild of the frame and made the rail even more fragile.
     • Communicating with the EV3 brick in order to control the motors programmatically was not directly achievable from the computer, as it can only run programs through the brick itself. This was solved by creating a “server” program to run on the brick in the background, and the “client” main program on the computer would send commands over the socket connection to the brick to be executed.
